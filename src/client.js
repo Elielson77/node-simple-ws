@@ -1,7 +1,8 @@
+import "dotenv/config";
 import WebSocket from "ws";
 import { stdin } from "node:process";
 
-const ws = new WebSocket("ws://127.0.0.1:3003/");
+const ws = new WebSocket(`${process.env.BASE_URL}:${process.env.PORT}/`);
 
 ws.on("error", console.error);
 

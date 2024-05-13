@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { WebSocketServer } from "ws";
 import { randomUUID } from "node:crypto";
 
@@ -7,7 +8,7 @@ function formatSend(uuid, data) {
 
 const sockets = [];
 
-const ws = new WebSocketServer({ port: 3003 });
+const ws = new WebSocketServer({ port: process.env.PORT });
 
 ws.on("connection", function connection(socket) {
   const uuid = randomUUID();
